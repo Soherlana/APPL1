@@ -18,13 +18,15 @@ public class Commission extends Hourly {
     }
     
     public void addSales (double totSales) {
-        totalSales += totSales;
+        totalSales = totSales;
     }
     
-    public double pay() {
-        double payment = super.pay() + commissionRate;
-        commissionRate = 0;
-        return payment;
+    @Override
+    public double pay()
+    {
+    double payment = super.pay() + (totalSales * commissionRate);
+    totalSales = 0;
+    return payment;
     }
     
     public String toString() {
