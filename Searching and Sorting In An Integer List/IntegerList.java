@@ -77,9 +77,9 @@ public class IntegerList
  }
  
  public void replaceFirst(int oldVal, int newVal){
-    int index = search(oldVal);
-    if (index != -1){
-        list[index] = newVal;
+    int loc = search(oldVal);
+    if (loc != -1){
+        list[loc] = newVal;
     }    
  }
  
