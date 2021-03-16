@@ -74,6 +74,12 @@ public class CirclePanel extends JPanel
         green.addActionListener(new ColorListener(Color.green));
         yellow.addActionListener(new ColorListener(Color.yellow));
 		
+		//set background for each button
+        red.setBackground(Color.red);
+        blue.setBackground(Color.blue);
+        green.setBackground(Color.green);
+        yellow.setBackground(Color.yellow);
+		
     }
     //---------------------------------------------------------------
     // Draw circle on CirclePanel
