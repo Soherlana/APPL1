@@ -17,6 +17,7 @@ package SortSearchIntegerList;
 //
 // ****************************************************************
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class IntegerList
 {
@@ -50,12 +51,18 @@ public class IntegerList
  //-------------------------------------------------------
  public int search(int target)
  {
- int location = -1;
- for (int i=0; i<list.length && location == -1; i++)
- if (list[i] == target)
- location = i;
- return location;
+    int location = -1;
+    for (int i=0; i<list.length && location == -1; i++)
+        if (list[i] == target)
+        location = i;
+    return location;
  }
+ 
+ public int binarySearch(int target){
+    int location = Arrays.binarySearch(list, target);
+    return location;
+ }
+ 
  //-------------------------------------------------------
  //sort the list into ascending order using the selection sort algorithm
  //-------------------------------------------------------

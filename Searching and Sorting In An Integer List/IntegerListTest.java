@@ -83,6 +83,15 @@ public class IntegerListTest
         case 7:
             list.sortDecreasing();
             break;
+        case 8:
+            System.out.print("Enter the value to look for: ");
+            loc = list.binarySearch(scan.nextInt());
+            if (loc <= -1)
+                System.out.println("Not in list");
+            else
+                System.out.println("Found at location " + loc);
+            
+            break;
         default:
             System.out.println("Sorry, invalid choice");
     }
@@ -102,6 +111,7 @@ public class IntegerListTest
  System.out.println("5: Replace the First Elememnt Occurrence in List");
  System.out.println("6: Replace the All Element Occurrence in List");
  System.out.println("7: Sort list from the largest(Decreasing)");
+ System.out.println("8: Find an element in the list using Binary search");
  System.out.print("\nEnter your choice: ");
  }
 }
