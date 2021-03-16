@@ -83,4 +83,12 @@ public class IntegerList
     }    
  }
  
+ public void replaceAll(int oldVal, int newVal){
+    int loc = search(oldVal);
+    while(loc != -1){
+        list[loc] = newVal;
+        loc = search(oldVal);
+    }      
+ }
+ 
 }
