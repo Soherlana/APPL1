@@ -75,4 +75,12 @@ public class IntegerList
  list[minIndex] = temp;
  }
  }
+ 
+ public void replaceFirst(int oldVal, int newVal){
+    int index = search(oldVal);
+    if (index != -1){
+        list[index] = newVal;
+    }    
+ }
+ 
 }
