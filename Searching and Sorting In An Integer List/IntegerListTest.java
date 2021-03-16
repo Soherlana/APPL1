@@ -80,6 +80,9 @@ public class IntegerListTest
             int newVal1 = scan.nextInt();
             list.replaceAll(oldVal1,newVal1);
             break;
+        case 7:
+            list.sortDecreasing();
+            break;
         default:
             System.out.println("Sorry, invalid choice");
     }
@@ -98,6 +101,7 @@ public class IntegerListTest
  System.out.println("4: Print the list");
  System.out.println("5: Replace the First Elememnt Occurrence in List");
  System.out.println("6: Replace the All Element Occurrence in List");
+ System.out.println("7: Sort list from the largest(Decreasing)");
  System.out.print("\nEnter your choice: ");
  }
 }
