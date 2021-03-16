@@ -11,11 +11,11 @@ package PaintingShapes;
  */
 public class Cylinder extends Shape {
     private double radius; 
-    private int height;
+    private double height;
     //----------------------------------
     // Constructor: Sets up the sphere.
     //----------------------------------
-    public Cylinder(double r, int h)
+    public Cylinder(double r, double h)
     {
         super("Cylinder");
         radius = r;

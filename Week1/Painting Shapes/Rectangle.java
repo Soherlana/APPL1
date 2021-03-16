@@ -10,12 +10,12 @@ package PaintingShapes;
  * @author lenovo
  */
 public class Rectangle extends Shape {
-    private int panjang;
-    private int lebar;
+    private double panjang;
+    private double lebar;
     //----------------------------------
     // Constructor: Sets up the rectangle.
     //----------------------------------
-    public Rectangle(int p, int l)
+    public Rectangle(double p, double l)
     {
         super("Rectangle");
         panjang  = p;
