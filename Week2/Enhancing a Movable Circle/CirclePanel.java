@@ -55,6 +55,13 @@ public class CirclePanel extends JPanel
         
         // Add the button panel to the bottom of the main panel
         this.add(buttonPanel, "South");
+        
+        //Add mnemonics to the button
+        left.setMnemonic('L');
+        right.setMnemonic('R');
+        up.setMnemonic('U');
+        down.setMnemonic('D');
+        
     }
     //---------------------------------------------------------------
     // Draw circle on CirclePanel
