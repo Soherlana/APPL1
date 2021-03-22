@@ -24,18 +24,16 @@ public class Warning
         int creditHrs ;     // number of semester hours earned   
         double qualityPts ; // number of quality points earned   
         double gpa ;        // grade point (quality point) average  
-        String line, name;
+        String name;
         String inputName = "students.dat";  
         String outputName = "warning.dat"; 
-        
-        File file = new File("students.dat");
-        
+                
         Scanner scan;
         PrintWriter outFile;
         try  
         {  
           // Set up scanner to input file  
-          scan = new Scanner(file);
+          scan = new Scanner(new FileInputStream(inputName));
           // Set up the output file stream  
           outFile = new PrintWriter(new FileWriter(outputName));  
           // Print a header to the output file  
