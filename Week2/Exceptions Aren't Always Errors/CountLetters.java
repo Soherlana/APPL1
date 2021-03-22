@@ -5,13 +5,11 @@
  */
 package Exception1;
 
-/**
- *
- * @author lenovo
- */
-// ****************************************************************  // CountLetters.java  
+// ****************************************************************  
+// CountLetters.java  
 //  
-// Reads a words from the standard input and prints the number of  // occurrences of each letter in that word.  
+// Reads a words from the standard input and prints the number of  
+// occurrences of each letter in that word.  
 //  
 // ****************************************************************  
 import java.util.Scanner;  
@@ -31,7 +29,7 @@ public class CountLetters
             for (int i=0; i < word.length(); i++)  
                 counts[word.charAt(i)-'A']++;  
         }catch(ArrayIndexOutOfBoundsException e){
-            System.out.print("Error in index of Array!");
+            System.out.print("There are not a letter!");
         }
         
         //print frequencies  
