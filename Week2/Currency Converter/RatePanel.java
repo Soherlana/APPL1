@@ -20,6 +20,7 @@ public class RatePanel extends JPanel
     private double[] rate; // exchange rates
     private String[] currencyName;
     private JLabel result;
+    private JComboBox comboBox;
     // ------------------------------------------------------------
     // Sets up a panel to convert cost from one of 6 currencies
     // into U.S. Dollars. The panel contains a heading, a text
@@ -36,12 +37,17 @@ public class RatePanel extends JPanel
         "European Euro", "Canadian Dollar",
         "Japanese Yen", "Australian Dollar",
         "Indian Rupee", "Mexican Peso"};
+        comboBox = new JComboBox(currencyName);
         rate = new double [] {0.0, 1.2103, 0.7351,
         0.0091, 0.6969,
         0.0222, 0.0880};
         result = new JLabel (" ------------ ");
-        add (title);
-        add (result);
+        add(title);
+        add(comboBox);
+        add(result);
+        
+        
+
     }
     // ******************************************************
     // Represents an action listener for the combo box.
@@ -56,8 +62,8 @@ public class RatePanel extends JPanel
         public void actionPerformed (ActionEvent event)
         {
             int index = 0;
-            result.setText ("1 " + currencyName[index] +
-            " = " + rate[index] + " U.S. Dollars");
+            result.setText ("1 " + currencyName[comboBox.getSelectedIndex()] +
+            " = " + rate[comboBox.getSelectedIndex()] + " U.S. Dollars");
         }
     }
 }
