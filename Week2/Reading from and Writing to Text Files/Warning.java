@@ -21,18 +21,21 @@ public class Warning
     // --------------------------------------------------------------------   
     public static void main (String[] args)  
     {  
-        int creditHrs;     // number of semester hours earned   
-        double qualityPts; // number of quality points earned   
-        double gpa;        // grade point (quality point) average  
-        String line, name, inputName = "students.dat";  
+        int creditHrs ;     // number of semester hours earned   
+        double qualityPts ; // number of quality points earned   
+        double gpa ;        // grade point (quality point) average  
+        String line, name;
+        String inputName = "students.dat";  
         String outputName = "warning.dat"; 
+        
+        File file = new File("students.dat");
         
         Scanner scan;
         PrintWriter outFile;
         try  
         {  
           // Set up scanner to input file  
-          scan = new Scanner(new FileInputStream(inputName));
+          scan = new Scanner(file);
           // Set up the output file stream  
           outFile = new PrintWriter(new FileWriter(outputName));  
           // Print a header to the output file  
@@ -40,12 +43,13 @@ public class Warning
             outFile.println("Students on Academic Warning");   
             outFile.println();  
             // Process the input file, one token at a time    
-            while (scan.hasNextLine())  
+            while (scan.hasNext())  
             {  
                 // Get the credit hours and quality points and
                 name = scan.next();
-                creditHrs = scan.nextInt();
-                qualityPts = scan.nextDouble();
+                creditHrs = Integer.parseInt(scan.next());
+                qualityPts = Double.parseDouble(scan.next());                
+
                 gpa = qualityPts/creditHrs;
                 // determine if the student is on warning. If so,
                 if ((gpa < 1.5 && creditHrs < 30) || (gpa < 1.75 && creditHrs < 60) 
@@ -54,7 +58,8 @@ public class Warning
                     // write the student data to the output file.
                     outFile.print(name + " ");
                     outFile.print(creditHrs + " ");
-                    outFile.print(gpa);
+                    //membulatkan bilangan desimal
+                    outFile.println(Math.round(gpa*100.0)/100.0);
                 }                         
             }  
             // Close output file
