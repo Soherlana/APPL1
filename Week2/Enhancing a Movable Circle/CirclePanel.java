@@ -20,6 +20,12 @@ public class CirclePanel extends JPanel
     private final int CIRCLE_SIZE = 50;
     private int x,y;
     private Color c;
+    // Create buttons to move the circle
+    JButton left = new JButton("Left");
+    JButton right = new JButton("Right");
+    JButton up = new JButton("Up");
+    JButton down = new JButton("Down");
+    
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
@@ -31,11 +37,7 @@ public class CirclePanel extends JPanel
         c = Color.green;
         // Need a border layout to get the buttons on the bottom
         this.setLayout(new BorderLayout());
-        // Create buttons to move the circle
-        JButton left = new JButton("Left");
-        JButton right = new JButton("Right");
-        JButton up = new JButton("Up");
-        JButton down = new JButton("Down");
+        
         
         
         // Add listeners to the buttons
@@ -66,7 +68,9 @@ public class CirclePanel extends JPanel
         left.setToolTipText("Geser 20 satuan ke kiri");
         right.setToolTipText("Geser 20 satuan ke kanan");
         up.setToolTipText("Geser 20 satuan ke atas");
-        down.setToolTipText("Geser 20 satuan ke bawah");       
+        down.setToolTipText("Geser 20 satuan ke bawah");     
+                
+                   
         
     }
     //---------------------------------------------------------------
@@ -96,11 +100,18 @@ public class CirclePanel extends JPanel
         //---------------------------------------------------------------
         // Change x and y coordinates and repaint.
         //---------------------------------------------------------------
-        public void actionPerformed(ActionEvent e)
-        {
+        public void actionPerformed(ActionEvent e)        {
+                      
             x += dx;
             y += dy;
             repaint();
+            
+            //Disable when the circle gets all the way to an edge
+            if (x == 335)right.setEnabled(false); else right.setEnabled(true);
+            if (x == -5)left.setEnabled(false); else left.setEnabled(true);
+            if (y == 185)down.setEnabled(false); else down.setEnabled(true);
+            if (y == 5)up.setEnabled(false); else up.setEnabled(true);
+                            
         }
     }
     
