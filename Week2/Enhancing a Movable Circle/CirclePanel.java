@@ -62,6 +62,12 @@ public class CirclePanel extends JPanel
         up.setMnemonic('U');
         down.setMnemonic('D');
         
+        //Add tooltips to the buttons 
+        left.setToolTipText("Geser 20 satuan ke kiri");
+        right.setToolTipText("Geser 20 satuan ke kanan");
+        up.setToolTipText("Geser 20 satuan ke atas");
+        down.setToolTipText("Geser 20 satuan ke bawah");       
+        
     }
     //---------------------------------------------------------------
     // Draw circle on CirclePanel
