@@ -20,7 +20,9 @@ public class MathUtils
     {       
         if(n < 0){
             throw new IllegalArgumentException("Can't Process negative number!");
-        }       
+        } else if (n > 16){
+            throw new IllegalArgumentException("Can't Process number more than 16!");
+        }        
         int fac = 1;
         for (int i=n; i>0; i--)
             fac *= i;
