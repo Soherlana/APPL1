@@ -48,10 +48,6 @@ public class CopyingFile
         catch (IOException exception)  
         {  
             System.out.println (exception);  
-        }  
-        catch (NumberFormatException e)  
-        {  
-            System.out.println ("Format error in input file: " + e);   
-        }  
+        } 
     }  
 }
