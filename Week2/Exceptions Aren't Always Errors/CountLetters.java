@@ -20,7 +20,8 @@ public class CountLetters
         int[] counts = new int[26];  
         Scanner scan = new Scanner(System.in);  
         //get word from user  
-        System.out.print("Enter a single word (letters only, please): ");   String word = scan.nextLine();  
+        System.out.print("Enter a single word (letters only, please): ");   
+        String word = scan.nextLine();  
         //convert to all upper case  
         word = word.toUpperCase();  
         
@@ -29,7 +30,7 @@ public class CountLetters
             for (int i=0; i < word.length(); i++)  
                 counts[word.charAt(i)-'A']++;  
         }catch(ArrayIndexOutOfBoundsException e){
-            System.out.print("There are not a letter!");
+            System.out.print("In "+word+" : There are non-letters!");
         }
         
         //print frequencies  
