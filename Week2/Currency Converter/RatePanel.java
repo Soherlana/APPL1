@@ -21,6 +21,9 @@ public class RatePanel extends JPanel
     private String[] currencyName;
     private JLabel result;
     private JComboBox comboBox;
+    private JTextField fieldValue;
+    private JLabel label;
+    private JButton calculate;  
     // ------------------------------------------------------------
     // Sets up a panel to convert cost from one of 6 currencies
     // into U.S. Dollars. The panel contains a heading, a text
@@ -32,21 +35,43 @@ public class RatePanel extends JPanel
         JLabel title = new JLabel ("How much is that in dollars?");
         title.setAlignmentX (Component.CENTER_ALIGNMENT);
         title.setFont (new Font ("Helvetica", Font.BOLD, 20));
+        
         // Set up the arrays for the currency conversions
         currencyName = new String[] {"Select the currency..",
         "European Euro", "Canadian Dollar",
         "Japanese Yen", "Australian Dollar",
         "Indian Rupee", "Mexican Peso"};
-		rate = new double [] {0.0, 1.2103, 0.7351,
-        0.0091, 0.6969, 0.0222, 0.0880};
-		result = new JLabel (" ------------ ");
-		
-		//Add comboBox
+        rate = new double [] {0.0, 1.2103, 0.7351, 0.0091,
+            0.6969, 0.0222, 0.0880};
+        result = new JLabel (" ------------ ");
+        
+        //Add combo box
         comboBox = new JComboBox(currencyName);
-		
+        //Add text field 
+        fieldValue = new JTextField(); 
+        //Add calculate button 
+        calculate = new JButton("Calculate");     
+        //Add Label
+        label = new JLabel("Insert Value : ");
+        
+        //Set size and coordinate of the component
+        title.setBounds(70, 5, 350, 20);
+        comboBox.setBounds(90, 40, 200, 25);
+        label.setBounds(80, 80, 200, 30);
+        fieldValue.setBounds(170, 80, 150, 30);
+        calculate.setBounds(110, 120, 150, 30);
+        result.setBounds(90, 160, 300, 35);
+        
+        //Add component to the panel
         add(title);
         add(comboBox);
-        add(result);     
+        add(label);
+        add(fieldValue);
+        add(calculate);
+        add(result);
+        
+        //Add listeners to the calculate buttons
+        calculate.addActionListener(new ComboListener());
     }
     // ******************************************************
     // Represents an action listener for the combo box.
@@ -60,9 +85,13 @@ public class RatePanel extends JPanel
         // --------------------------------------------------
         public void actionPerformed (ActionEvent event)
         {
-            int index = 0;
-            result.setText ("1 " + currencyName[comboBox.getSelectedIndex()] +
-            " = " + rate[comboBox.getSelectedIndex()] + " U.S. Dollars");
+            // Get value from text field
+            int textFieldValue = Integer.parseInt(fieldValue.getText());
+            //Set result when the Calculate button is pressed
+            result.setText (fieldValue.getText()+" " 
+                    + currencyName[comboBox.getSelectedIndex()] 
+                    + " = " + rate[comboBox.getSelectedIndex()]*textFieldValue 
+                    + " U.S. Dollars");
         }
     }
 }

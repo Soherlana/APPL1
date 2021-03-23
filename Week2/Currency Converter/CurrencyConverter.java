@@ -21,7 +21,16 @@ public class CurrencyConverter
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         RatePanel ratePanel = new RatePanel ();
         frame.getContentPane().add(ratePanel);
-        frame.pack();
+        
+        //Set the frame to the screen center
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = layar.width / 2  - layar.width / 2 + 440;
+        int y = layar.height / 2 - layar.height / 2 + 220;
+        frame.setSize(400,400);
+        frame.setLocation(x, y);
+        //Set Layout panel to null
+        ratePanel.setLayout(null);    
+        //Set visible frame to true
         frame.setVisible(true);
     }
 }
