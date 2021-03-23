@@ -37,17 +37,16 @@ public class RatePanel extends JPanel
         "European Euro", "Canadian Dollar",
         "Japanese Yen", "Australian Dollar",
         "Indian Rupee", "Mexican Peso"};
+		rate = new double [] {0.0, 1.2103, 0.7351,
+        0.0091, 0.6969, 0.0222, 0.0880};
+		result = new JLabel (" ------------ ");
+		
+		//Add comboBox
         comboBox = new JComboBox(currencyName);
-        rate = new double [] {0.0, 1.2103, 0.7351,
-        0.0091, 0.6969,
-        0.0222, 0.0880};
-        result = new JLabel (" ------------ ");
+		
         add(title);
         add(comboBox);
-        add(result);
-        
-        
-
+        add(result);     
     }
     // ******************************************************
     // Represents an action listener for the combo box.
