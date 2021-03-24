@@ -35,11 +35,10 @@ public class CirclePanel extends JPanel
         x = (width/2)-(CIRCLE_SIZE/2);
         y = (height/2)-(CIRCLE_SIZE/2);
         c = Color.green;
+        
         // Need a border layout to get the buttons on the bottom
         this.setLayout(new BorderLayout());
-        
-        
-        
+              
         // Add listeners to the buttons
         left.addActionListener(new MoveListener(-20,0));
         right.addActionListener(new MoveListener(20,0));
@@ -53,7 +52,6 @@ public class CirclePanel extends JPanel
         buttonPanel.add(right);
         buttonPanel.add(up);
         buttonPanel.add(down);
-
         
         // Add the button panel to the bottom of the main panel
         this.add(buttonPanel, "South");
@@ -69,9 +67,6 @@ public class CirclePanel extends JPanel
         right.setToolTipText("Geser 20 satuan ke kanan");
         up.setToolTipText("Geser 20 satuan ke atas");
         down.setToolTipText("Geser 20 satuan ke bawah");     
-                
-                   
-        
     }
     //---------------------------------------------------------------
     // Draw circle on CirclePanel
@@ -100,8 +95,8 @@ public class CirclePanel extends JPanel
         //---------------------------------------------------------------
         // Change x and y coordinates and repaint.
         //---------------------------------------------------------------
-        public void actionPerformed(ActionEvent e)        {
-                      
+        public void actionPerformed(ActionEvent e) {  
+        
             x += dx;
             y += dy;
             repaint();
@@ -110,10 +105,7 @@ public class CirclePanel extends JPanel
             if (x == 335)right.setEnabled(false); else right.setEnabled(true);
             if (x == -5)left.setEnabled(false); else left.setEnabled(true);
             if (y == 185)down.setEnabled(false); else down.setEnabled(true);
-            if (y == 5)up.setEnabled(false); else up.setEnabled(true);
-                            
+            if (y == 5)up.setEnabled(false); else up.setEnabled(true);                            
         }
-    }
-    
-   
+    }      
 }
