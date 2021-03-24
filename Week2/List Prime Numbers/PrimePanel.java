@@ -21,7 +21,7 @@ public class PrimePanel extends JPanel
     private JTextField number;
     private JButton computeButton;
     private JTextArea primeList;
-	private JScrollPane scroll;
+    private JScrollPane scroll;
     
     // ----------------------------------------------------------
     // Sets up a panel with a heading, a labeled text field
@@ -34,13 +34,15 @@ public class PrimePanel extends JPanel
         JLabel heading = new JLabel ("Prime Number Listing");
         heading.setFont (new Font("Helvetica", Font.BOLD, 30));
         JLabel inputLabel = new JLabel ("Enter a number: ");
-        number = new JTextField(20);
+        number = new JTextField(8);
         computeButton = new JButton ("Click to see all primes up to your number!");
         primeList = new JTextArea (10, 30);
         computeButton.addActionListener(new ButtonListener());
-		scroll = new JScrollPane(primeList);
+        // create a JScrollPane from JTextArea primeList
+        scroll = new JScrollPane(primeList);
+        //make the scroll bar appear even if the result is less long than the text area
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        
+
         // Add the components to the panel
         add (heading);
         add (inputLabel);
@@ -63,7 +65,7 @@ public class PrimePanel extends JPanel
         // -----------------------------------------------------------
         public void actionPerformed (ActionEvent event)
         {
-
+           try{
             String textNum = number.getText();
             int num = Integer.parseInt(textNum);
             String ans = "";
@@ -81,7 +83,10 @@ public class PrimePanel extends JPanel
                     {
                         if (i % j == 0){
                             foundDivisor = true;
-                }else{
+                        // Make loop stop at the square root of i
+                        }else if (j == Math.sqrt(i)){
+                            foundDivisor = true;
+                        }else{
                             j++;
                         }
                     }
@@ -97,7 +102,11 @@ public class PrimePanel extends JPanel
                 }
             }
             primeList.setText(ans);
-                      
+          // exception if the user enters non-integer data
+          }catch(NumberFormatException n){
+               primeList.setText(n.getMessage()+" : It's not an Integer!");
+          }
+            
         }
     }
 }
